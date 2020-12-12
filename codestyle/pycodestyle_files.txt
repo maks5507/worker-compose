@@ -1,0 +1,7 @@
+../*.py
+../common/*.py
+../modules/grobid_launcher/*.py
+../modules/grobid_tei_parser/*.py
+../modules/summarization_worker/*.py
+../modules/summarization_worker/prompters/*.py
+../modules/summarization_worker/rankers/*.py
