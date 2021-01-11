@@ -20,6 +20,7 @@ class Worker:
         action_type = data[b'action']
         params = data[b'payload']
         params = {key.decode(): value for key, value in params.items()}
+        params['action'] = action_type
 
         result = self.action(**params)
 
