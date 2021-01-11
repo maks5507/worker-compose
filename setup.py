@@ -11,9 +11,7 @@ setup_kwargs = dict(
     version='1.0',
     packages=['worker_compose'],
     install_requires=[
-        'numpy',
-        'multiprocessing',
-        'rmq_interface'
+        'numpy'
     ],
     setup_requires=[
     ],
