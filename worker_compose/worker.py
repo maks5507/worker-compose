@@ -19,7 +19,7 @@ class Worker:
 
         action_type = data['action']
         params = data['payload']
-        params['action'] = action_type.decode()
+        params['action'] = action_type
 
         result = self.action(**params)
 
