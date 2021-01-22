@@ -15,11 +15,10 @@ class Worker:
 
     @rmq_interface.class_consumer
     def __read(self, payload, props):
-        data = msgpack.unpackb(payload)
+        data = msgpack.unpackb(payload, raw=False)
 
-        action_type = data[b'action']
-        params = data[b'payload']
-        params = {key.decode(): value for key, value in params.items()}
+        action_type = data['action']
+        params = data['payload']
         params['action'] = action_type.decode()
 
         result = self.action(**params)
