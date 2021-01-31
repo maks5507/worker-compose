@@ -50,9 +50,12 @@ class Launcher:
 
                 prefix = jobs[job_id]['prefix']
 
-                spec = importlib.util.spec_from_file_location(module_name, prefix)
-                module = importlib.util.module_from_spec(spec)
-                spec.loader.exec_module(module)
+                if prefix[:-3] == '.py':
+                    spec = importlib.util.spec_from_file_location(module_name, prefix)
+                    module = importlib.util.module_from_spec(spec)
+                    spec.loader.exec_module(module)
+                else:
+                    module = importlib.import_module(f'{prefix}.{module_name}')
 
                 attr = getattr(module, class_name)
                 jobs[job_id]['instance'] = attr(**init_args)
