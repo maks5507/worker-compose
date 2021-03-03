@@ -50,7 +50,7 @@ class Launcher:
 
                 prefix = jobs[job_id]['prefix']
 
-                if prefix[:-3] == '.py':
+                if prefix[-3:] == '.py':
                     spec = importlib.util.spec_from_file_location(module_name, prefix)
                     module = importlib.util.module_from_spec(spec)
                     spec.loader.exec_module(module)
